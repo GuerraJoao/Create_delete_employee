@@ -3,7 +3,7 @@ import json
 
 SUCCESS_MESSAGE = 'Successfully! Record has been '
 
-
+# The headers options are used in the request, because the API was returning a 406 code, and upon searching, changing the user-agent is a way of avoiding that
 def create_employee(id, name):
     response = requests.post('https://dummy.restapiexample.com/api/v1/create', {'id': f'{id}', 'name': f'{name}'}, headers={"User-Agent": "XY"})
     assert response.status_code is 200

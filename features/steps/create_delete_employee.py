@@ -12,6 +12,7 @@ def step_impl(context, employee_id, employee_name):
 def step_impl(context, employee_id):
     response = fetch_employee(employee_id)
     response = validate_response(response, 'fetch')
+    # Here, as we created an employee, we expect the fetch to return it
     assert response.parsed_text['data'] is not None
 
 
@@ -25,4 +26,5 @@ def step_impl(context, employee_id):
 def step_impl(context, employee_id):
     response = fetch_employee(employee_id)
     response = validate_response(response, 'fetch')
+    # Here, opposed to the previous step, as the user was deleted, we expect is is not returned in the fetch request
     assert response.parsed_text['data'] is None

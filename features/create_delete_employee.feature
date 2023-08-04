@@ -1,8 +1,12 @@
 Feature: Creating and deleting employee
 
-  Scenario: Create and delete employee
-#      Given we create an employee with id "3344" and name "Joao"
-#      Given confirm the employee "3344"
-#      When we delete employee "3344"
-      Then confirm employee "3344" does not exist
+  Scenario Outline: Create and delete employee
+      Given we create an employee with id "<id>" and name "<name>"
+      Given confirm the employee "<id>"
+      When we delete employee "<id>"
+      Then confirm employee "<id>" does not exist
+
+   Examples: Employees
+   | id   | name |
+   | 3344 | Joao |
 
